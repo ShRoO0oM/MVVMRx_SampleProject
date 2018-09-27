@@ -43,7 +43,7 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
         }
     }
     private func backViewGenrator(){
-    //    backView.kf.setImage(with: URL(string: album.poster!))
+        backView.imageFromURL(urlString: album.albumArtWork)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
