@@ -100,12 +100,6 @@
 				15681F44215D000300E535E5 /* Helper */,
 				15681F27215CFD9D00E535E5 /* SupportFiles */,
 				15681F1F215CFBE000E535E5 /* Home */,
-				156429D0215CE0C70072C01E /* AppDelegate.swift */,
-				156429D2215CE0C80072C01E /* HomeVC.swift */,
-				156429D4215CE0C80072C01E /* Main.storyboard */,
-				156429D7215CE0C90072C01E /* Assets.xcassets */,
-				156429D9215CE0C90072C01E /* LaunchScreen.storyboard */,
-				156429DC215CE0C90072C01E /* Info.plist */,
 			);
 			path = MVVMRx;
 			sourceTree = "<group>";
@@ -140,6 +134,7 @@
 		15681F22215CFC5200E535E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				156429D2215CE0C80072C01E /* HomeVC.swift */,
 				15681F3F215CFE3200E535E5 /* AlbumsCollectionViewVC.swift */,
 				15681F3E215CFE3200E535E5 /* TracksTableViewVC.swift */,
 			);
@@ -149,6 +144,11 @@
 		15681F27215CFD9D00E535E5 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				156429D7215CE0C90072C01E /* Assets.xcassets */,
+				156429D9215CE0C90072C01E /* LaunchScreen.storyboard */,
+				156429D4215CE0C80072C01E /* Main.storyboard */,
+				156429D0215CE0C70072C01E /* AppDelegate.swift */,
+				156429DC215CE0C90072C01E /* Info.plist */,
 				15681F29215CFDBB00E535E5 /* LoadingView */,
 				15681F28215CFDAA00E535E5 /* MessageView */,
 				15681F38215CFE1100E535E5 /* AlbumsCollectionViewCell.swift */,

@@ -27,7 +27,11 @@ class AlbumsCollectionViewVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     func setupBinding(){
+        
+        
         albumsCollectionView.register(UINib(nibName: "AlbumsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: String(describing: AlbumsCollectionViewCell.self))
+        
+        
         albums.bind(to: albumsCollectionView.rx.items(cellIdentifier: "AlbumsCollectionViewCell", cellType: AlbumsCollectionViewCell.self)) {  (row,album,cell) in
             cell.album = album
             cell.withBackView = true
