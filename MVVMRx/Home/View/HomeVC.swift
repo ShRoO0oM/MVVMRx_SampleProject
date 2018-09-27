@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var albumsVCView: UIView!
     private lazy var albumsViewController: AlbumsCollectionViewVC = {
         // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
         
         // Instantiate View Controller
         var viewController = storyboard.instantiateViewController(withIdentifier: "AlbumsCollectionViewVC") as! AlbumsCollectionViewVC
@@ -29,7 +29,7 @@ class HomeVC: UIViewController {
     }()
     private lazy var tracksViewController: TracksTableViewVC = {
         // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
         
         // Instantiate View Controller
         var viewController = storyboard.instantiateViewController(withIdentifier: "TracksTableViewVC") as! TracksTableViewVC
