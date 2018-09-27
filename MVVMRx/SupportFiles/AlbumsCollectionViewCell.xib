@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumsCollectionViewCell" id="fnK-00-PeF" customClass="AlbumsCollectionViewCell" customModule="MVVMRx" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="138" height="188"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="138" height="188"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mcz-Xk-xSN">
+                        <rect key="frame" x="14" y="4" width="110" height="110.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="mcz-Xk-xSN" secondAttribute="height" multiplier="1:1" id="p8n-f0-Z44"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="tnB-kE-C8d">
+                        <rect key="frame" x="10.5" y="118.5" width="117" height="17"/>
+                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ACY-Fn-HDH">
+                        <rect key="frame" x="10.5" y="137.5" width="117" height="17"/>
+                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ACY-Fn-HDH" secondAttribute="bottom" constant="4" id="08p-3L-89N"/>
+                <constraint firstItem="tnB-kE-C8d" firstAttribute="top" secondItem="mcz-Xk-xSN" secondAttribute="bottom" constant="4" id="GvE-Ty-sTZ"/>
+                <constraint firstItem="ACY-Fn-HDH" firstAttribute="width" secondItem="tnB-kE-C8d" secondAttribute="width" id="JoX-5d-llK"/>
+                <constraint firstItem="tnB-kE-C8d" firstAttribute="width" secondItem="fnK-00-PeF" secondAttribute="width" multiplier="0.85" id="L8O-j1-EW4"/>
+                <constraint firstItem="ACY-Fn-HDH" firstAttribute="top" secondItem="tnB-kE-C8d" secondAttribute="bottom" constant="2" id="Nu2-oS-mRp"/>
+                <constraint firstItem="mcz-Xk-xSN" firstAttribute="top" secondItem="fnK-00-PeF" secondAttribute="topMargin" constant="4" id="OYc-pA-Uqy"/>
+                <constraint firstItem="mcz-Xk-xSN" firstAttribute="centerX" secondItem="fnK-00-PeF" secondAttribute="centerX" id="QkL-3U-VWi"/>
+                <constraint firstItem="mcz-Xk-xSN" firstAttribute="width" secondItem="fnK-00-PeF" secondAttribute="width" multiplier="0.8" id="SRK-NM-as7"/>
+                <constraint firstItem="ACY-Fn-HDH" firstAttribute="centerX" secondItem="fnK-00-PeF" secondAttribute="centerX" id="Y5N-YG-4DS"/>
+                <constraint firstItem="tnB-kE-C8d" firstAttribute="centerX" secondItem="fnK-00-PeF" secondAttribute="centerX" id="oI1-HB-EEU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="d2l-PJ-pRb"/>
+            <size key="customSize" width="138" height="188"/>
+            <connections>
+                <outlet property="albumArtist" destination="ACY-Fn-HDH" id="Azo-MT-zVF"/>
+                <outlet property="albumImage" destination="mcz-Xk-xSN" id="eMB-ow-yMW"/>
+                <outlet property="albumTitle" destination="tnB-kE-C8d" id="LxP-xo-r1g"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="2"/>
+        </collectionViewCell>
+    </objects>
+</document>
