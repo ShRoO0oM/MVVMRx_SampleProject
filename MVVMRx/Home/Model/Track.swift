@@ -31,8 +31,4 @@ extension Track {
             return nil
         }
     }
-    init?(_ json: String, using encoding: String.Encoding = .utf8) {
-        guard let data = json.data(using: encoding) else { return nil }
-        self.init(data: data)
-    }
 }

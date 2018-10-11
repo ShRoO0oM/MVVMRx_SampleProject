@@ -16,11 +16,9 @@ import SwiftyJSON
 class APIManager {
     
     
-    static let baseUrl = "http://emadansari.ir/api/"
+    static let baseUrl = "https://gist.githubusercontent.com/mohammadZ74/dcd86ebedb5e519fd7b09b79dd4e4558/raw/d068a8736f328719bf0b51c778e250874747fb5d/"
     
     typealias parameters = [String:Any]
-    
-    @nonobjc static var token = UserDefaults.standard.value(forKey: "token") as? String ?? ""
     
     enum ApiResult {
         case success(JSON)
@@ -49,7 +47,7 @@ class APIManager {
     }
     static func requestData(url:String,method:HTTPMethod,parameters:parameters?,isTokenRequired:Bool = true,completion: @escaping (ApiResult)->Void) {
         
-        let header = isTokenRequired && !(token.isEmpty) ? ["Content-Type": "application/x-www-form-urlencoded","authorization":token] : ["Content-Type": "application/x-www-form-urlencoded"]
+        let header =  ["Content-Type": "application/x-www-form-urlencoded"]
         
         var urlRequest = URLRequest(url: URL(string: baseUrl+url)!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         urlRequest.allHTTPHeaderFields = header

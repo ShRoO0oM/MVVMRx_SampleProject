@@ -29,7 +29,7 @@ class HomeViewModel {
     
     func requestData(){
         self.loading.onNext(true)
-        APIManager.requestData(url: "getHome", method: .get, parameters: nil, completion: { [weak self] (result) in
+        APIManager.requestData(url: "MvvmExampleApi.json", method: .get, parameters: nil, completion: { [weak self] (result) in
             self?.loading.onNext(false)
             switch result {
             case .success(let returnJson) :

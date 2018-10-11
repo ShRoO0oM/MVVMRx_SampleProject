@@ -21,16 +21,14 @@ class TracksTableViewCell: UITableViewCell {
         didSet {
             self.trackImage.clipsToBounds = true
             self.trackImage.layer.cornerRadius = 3
-            self.trackImage.imageFromURL(urlString: cellTrack.trackArtWork)
+            self.trackImage.loadImage(fromURL: cellTrack.trackArtWork)
             self.trackTitle.text = cellTrack.name
             self.trackArtist.text = cellTrack.artist
         }
     }
-
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .clear
-        
     }
 
 }

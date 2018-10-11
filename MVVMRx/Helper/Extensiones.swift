@@ -10,37 +10,6 @@ import UIKit
 
 
 
-
-//-----------------------UICOLOR------------------//
-extension UIColor {
-    @nonobjc static func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
-        }
-        
-        if ((cString.count) != 6) {
-            return UIColor.gray
-        }
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    @nonobjc static var desiredRed :UIColor {
-        get {
-            return UIColor.hexStringToUIColor(hex: "db545b")
-        }
-    }
-}
-//-----------------------UICOLOR------------------//
-
 //-----------------------UIView------------------//
 
 extension UIView {
@@ -211,19 +180,39 @@ extension UIView {
         }
     }
 }
-extension UIImageView {
-    public func imageFromURL(urlString: String) {
+public extension UIImageView {
+    public func loadImage(fromURL url: String) {
+        guard let imageURL = URL(string: url) else {
+            return
+        }
         
-        URLSession.shared.dataTask(with: URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!, completionHandler: { (data, response, error) -> Void in
-            if error != nil {
-                print(error ?? "No Error")
-                return
+        let cache =  URLCache.shared
+        let request = URLRequest(url: imageURL)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.transition(toImage: image)
+                }
+            } else {
+                URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                    if let data = data, let response = response, ((response as? HTTPURLResponse)?.statusCode ?? 500) < 300, let image = UIImage(data: data) {
+                        let cachedData = CachedURLResponse(response: response, data: data)
+                        cache.storeCachedResponse(cachedData, for: request)
+                        DispatchQueue.main.async {
+                            self.transition(toImage: image)
+                        }
+                    }
+                }).resume()
             }
-            DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                self.image = image
-            })
-            
-        }).resume()
+        }
+    }
+    
+    public func transition(toImage image: UIImage?) {
+        UIView.transition(with: self, duration: 0.3,
+                          options: [.transitionCrossDissolve],
+                          animations: {
+                            self.image = image
+        },
+                          completion: nil)
     }
 }

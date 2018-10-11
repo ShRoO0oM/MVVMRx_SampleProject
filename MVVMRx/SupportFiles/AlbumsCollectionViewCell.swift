@@ -37,17 +37,13 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
     }()
     public var album: Album! {
         didSet {
-            self.albumImage.imageFromURL(urlString: album.albumArtWork)
+            self.albumImage.loadImage(fromURL: album.albumArtWork)
             self.albumArtist.text = ""
             self.albumTitle.text = album.name
         }
     }
     private func backViewGenrator(){
-        backView.imageFromURL(urlString: album.albumArtWork)
-    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        backView.loadImage(fromURL: album.albumArtWork)
     }
 
 }

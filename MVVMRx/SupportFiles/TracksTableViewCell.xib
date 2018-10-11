@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,23 +19,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eeK-LT-IM9">
-                        <rect key="frame" x="317.5" y="4" width="49.5" height="49.5"/>
+                        <rect key="frame" x="16" y="4" width="49.5" height="49.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="eeK-LT-IM9" secondAttribute="height" multiplier="1:1" id="pVJ-qf-h78"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-po-06l">
-                        <rect key="frame" x="163.5" y="8" width="150" height="17"/>
-                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aaq-bM-mZg">
-                        <rect key="frame" x="163.5" y="34.5" width="150" height="17"/>
-                        <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzm-sT-EMO">
                         <rect key="frame" x="16" y="57" width="351" height="0.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,20 +31,32 @@
                             <constraint firstAttribute="height" constant="0.5" id="K3A-zY-wbz"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-po-06l">
+                        <rect key="frame" x="81.5" y="8" width="150" height="18"/>
+                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Aaq-bM-mZg">
+                        <rect key="frame" x="81.5" y="33.5" width="150" height="18"/>
+                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="D6K-po-06l" firstAttribute="width" secondItem="7D3-5r-2Up" secondAttribute="width" multiplier="0.4" id="2hc-tH-J3x"/>
-                    <constraint firstItem="uzm-sT-EMO" firstAttribute="trailing" secondItem="eeK-LT-IM9" secondAttribute="trailing" id="375-iK-bLA"/>
                     <constraint firstItem="eeK-LT-IM9" firstAttribute="top" secondItem="7D3-5r-2Up" secondAttribute="top" constant="4" id="4G0-DT-TWu"/>
                     <constraint firstItem="Aaq-bM-mZg" firstAttribute="width" secondItem="D6K-po-06l" secondAttribute="width" id="8en-vH-MAa"/>
                     <constraint firstItem="uzm-sT-EMO" firstAttribute="leading" secondItem="7D3-5r-2Up" secondAttribute="leading" constant="16" id="9Al-jV-lMy"/>
-                    <constraint firstItem="eeK-LT-IM9" firstAttribute="leading" secondItem="Aaq-bM-mZg" secondAttribute="trailing" constant="4" id="LLR-XB-GNp"/>
+                    <constraint firstItem="eeK-LT-IM9" firstAttribute="leading" secondItem="7D3-5r-2Up" secondAttribute="leading" constant="16" id="WRg-kO-1m1"/>
                     <constraint firstItem="D6K-po-06l" firstAttribute="top" secondItem="7D3-5r-2Up" secondAttribute="top" constant="8" id="Z9T-2j-sgB"/>
                     <constraint firstAttribute="bottom" secondItem="Aaq-bM-mZg" secondAttribute="bottom" constant="6" id="cVB-zB-8Oo"/>
-                    <constraint firstItem="eeK-LT-IM9" firstAttribute="leading" secondItem="D6K-po-06l" secondAttribute="trailing" constant="4" id="rGC-No-r9S"/>
+                    <constraint firstAttribute="trailing" secondItem="uzm-sT-EMO" secondAttribute="trailing" constant="8" id="e5v-nx-i7C"/>
+                    <constraint firstItem="Aaq-bM-mZg" firstAttribute="leading" secondItem="D6K-po-06l" secondAttribute="leading" id="lXb-f3-HpA"/>
+                    <constraint firstItem="D6K-po-06l" firstAttribute="leading" secondItem="eeK-LT-IM9" secondAttribute="trailing" constant="16" id="r4I-u7-AIv"/>
                     <constraint firstAttribute="bottom" secondItem="eeK-LT-IM9" secondAttribute="bottom" constant="4" id="rS1-hc-MIe"/>
                     <constraint firstAttribute="bottom" secondItem="uzm-sT-EMO" secondAttribute="bottom" id="uMU-Ba-eeA"/>
-                    <constraint firstAttribute="trailing" secondItem="eeK-LT-IM9" secondAttribute="trailing" constant="8" id="wgm-mW-Hsz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
