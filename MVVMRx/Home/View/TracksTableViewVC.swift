@@ -27,10 +27,13 @@ class TracksTableViewVC: UIViewController {
         setupBinding()
     }
     func setupBinding(){
+        
         tracksTableView.register(UINib(nibName: "TracksTableViewCell", bundle: nil), forCellReuseIdentifier: String(describing: TracksTableViewCell.self))
-        tracks.bind(to: tracksTableView.rx.items(cellIdentifier: "TracksTableViewCell", cellType: TracksTableViewCell.self)) {  (_,track,cell) in
+        
+        tracks.bind(to: tracksTableView.rx.items(cellIdentifier: "TracksTableViewCell", cellType: TracksTableViewCell.self)) {  (row,track,cell) in
             cell.cellTrack = track
             }.disposed(by: disposeBag)
+        
         tracksTableView.rx.willDisplayCell
             .subscribe(onNext: ({ (cell,indexPath) in
                 cell.alpha = 0
@@ -41,12 +44,6 @@ class TracksTableViewVC: UIViewController {
                     cell.layer.transform = CATransform3DIdentity
                 }, completion: nil)
             })).disposed(by: disposeBag)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        print("TracksTableViewVC did appear" )
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        print("TracksTableViewVC will appear" )
     }
 }
 

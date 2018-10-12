@@ -37,6 +37,9 @@ class AlbumsCollectionViewVC: UIViewController {
             cell.withBackView = true
             }.disposed(by: disposeBag)
         
+        
+        
+        
         albumsCollectionView.rx.willDisplayCell
             .subscribe(onNext: ({ (cell,indexPath) in
                 cell.alpha = 0

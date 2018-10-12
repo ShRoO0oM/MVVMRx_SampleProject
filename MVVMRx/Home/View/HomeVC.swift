@@ -14,7 +14,9 @@ class HomeVC: UIViewController {
     
     // MARK: - SubViews
     @IBOutlet weak var tracksVCView: UIView!
+    
     @IBOutlet weak var albumsVCView: UIView!
+    
     private lazy var albumsViewController: AlbumsCollectionViewVC = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
@@ -27,6 +29,8 @@ class HomeVC: UIViewController {
         
         return viewController
     }()
+    
+    
     private lazy var tracksViewController: TracksTableViewVC = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Home", bundle: Bundle.main)
@@ -61,18 +65,6 @@ class HomeVC: UIViewController {
             .bind(to: self.rx.isAnimating).disposed(by: disposeBag)
         
         homeViewModel
-            .albums
-            .observeOn(MainScheduler.instance)
-            .bind(to: albumsViewController.albums)
-            .disposed(by: disposeBag)
-        homeViewModel
-            .tracks
-            .observeOn(MainScheduler.instance)
-            .bind(to: tracksViewController.tracks)
-            .disposed(by: disposeBag)
-        
-        
-        homeViewModel
             .error
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (error) in
@@ -84,5 +76,19 @@ class HomeVC: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        homeViewModel
+            .albums
+            .observeOn(MainScheduler.instance)
+            .bind(to: albumsViewController.albums)
+            .disposed(by: disposeBag)
+        homeViewModel
+            .tracks
+            .observeOn(MainScheduler.instance)
+            .bind(to: tracksViewController.tracks)
+            .disposed(by: disposeBag)
+        
+        
+       
     }
 }

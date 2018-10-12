@@ -26,6 +26,7 @@ class TracksTableViewCell: UITableViewCell {
             self.trackArtist.text = cellTrack.artist
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .clear
