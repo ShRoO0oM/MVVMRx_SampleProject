@@ -30,5 +30,7 @@ class TracksTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.backgroundColor = .clear
     }
-
+    override func prepareForReuse() {
+        trackImage.image = UIImage()
+    }
 }

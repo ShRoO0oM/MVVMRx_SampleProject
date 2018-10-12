@@ -45,5 +45,8 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
     private func backViewGenrator(){
         backView.loadImage(fromURL: album.albumArtWork)
     }
-
+    override func prepareForReuse() {
+        albumImage.image = UIImage()
+        backView.image = UIImage()
+    }
 }
