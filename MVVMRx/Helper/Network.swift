@@ -16,7 +16,7 @@ import SwiftyJSON
 class APIManager {
     
     
-    static let baseUrl = "https://gist.githubusercontent.com/mohammadZ74/dcd86ebedb5e519fd7b09b79dd4e4558/raw/d068a8736f328719bf0b51c778e250874747fb5d/"
+    static let baseUrl = "https://gist.githubusercontent.com/mohammadZ74/"
     
     typealias parameters = [String:Any]
     
