@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class HomeVC: UIViewController {
     
@@ -47,7 +45,6 @@ class HomeVC: UIViewController {
     
     var homeViewModel = HomeViewModel()
     
-    let disposeBag = DisposeBag()
     
     // MARK: - View's Cycle
     
@@ -65,41 +62,37 @@ class HomeVC: UIViewController {
         
         // binding loading to vc
         
-        homeViewModel.loading
-            .bind(to: self.rx.isAnimating).disposed(by: disposeBag)
+        homeViewModel.loading = { [weak self] (isLoading) in
+            guard let `self` = self else {return}
+            isLoading ? self.startAnimating() : self.stopAnimating()
+        }
         
         
         // observing errors to show
         
-        homeViewModel
-            .error
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (error) in
-                switch error {
-                case .internetError(let message):
-                    MessageView.sharedInstance.showOnView(message: message, theme: .error)
-                case .serverMessage(let message):
-                    MessageView.sharedInstance.showOnView(message: message, theme: .warning)
-                }
-            })
-            .disposed(by: disposeBag)
+        
+        homeViewModel.error = { (error) in
+            switch error {
+            case .internetError(let message):
+                MessageView.sharedInstance.showOnView(message: message, theme: .error)
+            case .serverMessage(let message):
+                MessageView.sharedInstance.showOnView(message: message, theme: .warning)
+            }
+        }
         
         
         // binding albums to album container
         
-        homeViewModel
-            .albums
-            .observeOn(MainScheduler.instance)
-            .bind(to: albumsViewController.albums)
-            .disposed(by: disposeBag)
-        
+        homeViewModel.onAlbums = { [weak self] (albums) in
+            guard let `self` = self else {return}
+            self.albumsViewController.albums = albums
+        }
         // binding tracks to track container
         
-        homeViewModel
-            .tracks
-            .observeOn(MainScheduler.instance)
-            .bind(to: tracksViewController.tracks)
-            .disposed(by: disposeBag)
+        homeViewModel.onTracks = { [weak self] (tracks) in
+            guard let `self` = self else {return}
+            self.tracksViewController.tracks = tracks
+        }
        
     }
 }

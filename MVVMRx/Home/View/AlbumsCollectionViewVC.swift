@@ -7,56 +7,47 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class AlbumsCollectionViewVC: UIViewController {
     
     
     @IBOutlet private weak var albumsCollectionView: UICollectionView!
     
-    public var albums = PublishSubject<[Album]>()
-    
-    private let disposeBag = DisposeBag()
+    public var albums: [Album] = [Album]() {
+        didSet {
+            self.albumsCollectionView.reloadData()
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBinding()
+        setupCollectionView()
         albumsCollectionView.backgroundColor = .clear
+        
     }
     
-    
-    
-    private func setupBinding(){
-        
+    private func setupCollectionView(){
+        albumsCollectionView.dataSource = self
         
         albumsCollectionView.register(UINib(nibName: "AlbumsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: String(describing: AlbumsCollectionViewCell.self))
         
-        
-        albums.bind(to: albumsCollectionView.rx.items(cellIdentifier: "AlbumsCollectionViewCell", cellType: AlbumsCollectionViewCell.self)) {  (row,album,cell) in
-            cell.album = album
-            cell.withBackView = true
-            }.disposed(by: disposeBag)
-        
-        
-        
-        
-        albumsCollectionView.rx.willDisplayCell
-            .subscribe(onNext: ({ (cell,indexPath) in
-                cell.alpha = 0
-                let transform = CATransform3DTranslate(CATransform3DIdentity, 0, -250, 0)
-                cell.layer.transform = transform
-                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
-                    cell.alpha = 1
-                    cell.layer.transform = CATransform3DIdentity
-                }, completion: nil)
-            })).disposed(by: disposeBag)
-        
-        
-        
-        
-        
     }
     
+    
+}
+
+extension AlbumsCollectionViewVC : UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.albums.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumsCollectionViewCell", for: indexPath) as! AlbumsCollectionViewCell
+        cell.album = albums[indexPath.row]
+        cell.withBackView = true
+        return cell
+    }
 }
