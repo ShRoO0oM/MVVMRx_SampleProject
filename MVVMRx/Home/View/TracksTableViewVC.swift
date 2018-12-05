@@ -14,19 +14,21 @@ import RxCocoa
 class TracksTableViewVC: UIViewController {
     
     
-    @IBOutlet weak var tracksTableView: UITableView!
+    @IBOutlet private weak var tracksTableView: UITableView!
     
     
-    var tracks = PublishSubject<[Track]>()
+    public var tracks = PublishSubject<[Track]>()
     
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
     }
-    func setupBinding(){
+    
+    
+    private func setupBinding(){
         
         tracksTableView.register(UINib(nibName: "TracksTableViewCell", bundle: nil), forCellReuseIdentifier: String(describing: TracksTableViewCell.self))
         

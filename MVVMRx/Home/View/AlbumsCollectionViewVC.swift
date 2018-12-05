@@ -13,20 +13,22 @@ import RxCocoa
 class AlbumsCollectionViewVC: UIViewController {
     
     
-    @IBOutlet weak var albumsCollectionView: UICollectionView!
+    @IBOutlet private weak var albumsCollectionView: UICollectionView!
     
-    var albums = PublishSubject<[Album]>()
+    public var albums = PublishSubject<[Album]>()
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinding()
         albumsCollectionView.backgroundColor = .clear
-        // Do any additional setup after loading the view.
     }
-    func setupBinding(){
+    
+    
+    
+    private func setupBinding(){
         
         
         albumsCollectionView.register(UINib(nibName: "AlbumsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: String(describing: AlbumsCollectionViewCell.self))
@@ -50,6 +52,11 @@ class AlbumsCollectionViewVC: UIViewController {
                     cell.layer.transform = CATransform3DIdentity
                 }, completion: nil)
             })).disposed(by: disposeBag)
+        
+        
+        
+        
+        
     }
     
 }

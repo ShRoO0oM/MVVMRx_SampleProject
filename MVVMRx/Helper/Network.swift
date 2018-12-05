@@ -45,7 +45,7 @@ class APIManager {
         case serverError
         case serverUnavailable
     }
-    static func requestData(url:String,method:HTTPMethod,parameters:parameters?,isTokenRequired:Bool = true,completion: @escaping (ApiResult)->Void) {
+    static func requestData(url:String,method:HTTPMethod,parameters:parameters?,completion: @escaping (ApiResult)->Void) {
         
         let header =  ["Content-Type": "application/x-www-form-urlencoded"]
         

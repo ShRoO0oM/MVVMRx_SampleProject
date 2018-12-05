@@ -146,12 +146,10 @@
 		15681F27215CFD9D00E535E5 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				52420C5421B7EF5500A0DCAE /* TrackTableViewCell */,
+				52420C5321B7EF4000A0DCAE /* AlbumCollectionViewCell */,
 				15681F29215CFDBB00E535E5 /* LoadingView */,
 				15681F28215CFDAA00E535E5 /* MessageView */,
-				15681F38215CFE1100E535E5 /* AlbumsCollectionViewCell.swift */,
-				15681F37215CFE1100E535E5 /* AlbumsCollectionViewCell.xib */,
-				15681F39215CFE1100E535E5 /* TracksTableViewCell.swift */,
-				15681F36215CFE1100E535E5 /* TracksTableViewCell.xib */,
 				156429D0215CE0C70072C01E /* AppDelegate.swift */,
 			);
 			path = SupportFiles;
@@ -195,6 +193,24 @@
 				156429DC215CE0C90072C01E /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		52420C5321B7EF4000A0DCAE /* AlbumCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				15681F38215CFE1100E535E5 /* AlbumsCollectionViewCell.swift */,
+				15681F37215CFE1100E535E5 /* AlbumsCollectionViewCell.xib */,
+			);
+			path = AlbumCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		52420C5421B7EF5500A0DCAE /* TrackTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				15681F36215CFE1100E535E5 /* TracksTableViewCell.xib */,
+				15681F39215CFE1100E535E5 /* TracksTableViewCell.swift */,
+			);
+			path = TrackTableViewCell;
 			sourceTree = "<group>";
 		};
 		9AAF7D53FCA9C0BB4E28B210 /* Frameworks */ = {

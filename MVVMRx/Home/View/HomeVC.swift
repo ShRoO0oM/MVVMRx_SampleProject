@@ -49,6 +49,7 @@ class HomeVC: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    // MARK: - View's Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +59,17 @@ class HomeVC: UIViewController {
     }
     
     
+    // MARK: - Bindings
     
-    func setupBindings() {
+    private func setupBindings() {
+        
+        // binding loading to vc
         
         homeViewModel.loading
             .bind(to: self.rx.isAnimating).disposed(by: disposeBag)
+        
+        
+        // observing errors to show
         
         homeViewModel
             .error
@@ -77,18 +84,22 @@ class HomeVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        
+        // binding albums to album container
+        
         homeViewModel
             .albums
             .observeOn(MainScheduler.instance)
             .bind(to: albumsViewController.albums)
             .disposed(by: disposeBag)
+        
+        // binding tracks to track container
+        
         homeViewModel
             .tracks
             .observeOn(MainScheduler.instance)
             .bind(to: tracksViewController.tracks)
             .disposed(by: disposeBag)
-        
-        
        
     }
 }
