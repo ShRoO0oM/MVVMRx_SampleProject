@@ -71,7 +71,7 @@ class HomeVC: UIViewController {
         // observing errors to show
         
         
-        homeViewModel.error = { (error) in
+        homeViewModel.onError = { (error) in
             switch error {
             case .internetError(let message):
                 MessageView.sharedInstance.showOnView(message: message, theme: .error)

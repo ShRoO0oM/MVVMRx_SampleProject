@@ -34,20 +34,25 @@ class TracksTableViewVC: UIViewController {
         
         tracksTableView.register(UINib(nibName: "TracksTableViewCell", bundle: nil), forCellReuseIdentifier: String.init(describing: TracksTableViewCell.self))
         
-        
     }
 }
 
 extension TracksTableViewVC : UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: TracksTableViewCell.self)) as! TracksTableViewCell
+        
         cell.cellTrack = self.tracks[indexPath.row]
+        
         return cell
     }
 }
