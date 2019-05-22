@@ -14,7 +14,7 @@ import RxCocoa
 
 class HomeViewModel {
     
-    public enum homeError {
+    public enum HomeError {
         case internetError(String)
         case serverMessage(String)
     }
@@ -22,7 +22,7 @@ class HomeViewModel {
     public let albums : PublishSubject<[Album]> = PublishSubject()
     public let tracks : PublishSubject<[Track]> = PublishSubject()
     public let loading: PublishSubject<Bool> = PublishSubject()
-    public let error : PublishSubject<homeError> = PublishSubject()
+    public let error : PublishSubject<HomeError> = PublishSubject()
     
     private let disposable = DisposeBag()
     
