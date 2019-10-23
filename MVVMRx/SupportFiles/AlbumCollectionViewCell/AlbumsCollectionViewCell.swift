@@ -32,7 +32,7 @@ class AlbumsCollectionViewCell: UICollectionViewCell {
         ])
         backView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         backView.alpha = 0.5
-        contentView.bringSubview(toFront: albumImage)
+        contentView.bringSubviewToFront(albumImage)
         return backView
     }()
     public var album: Album! {

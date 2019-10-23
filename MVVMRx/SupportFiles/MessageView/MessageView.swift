@@ -51,7 +51,7 @@ class MessageView: UIView {
         applyTheme(theme: theme)
         self.frame.size = CGSize(width: parentView.frame.width, height: 100)
         self.frame = CGRect(x: parentView.frame.minX, y: parentView.frame.minY - self.frame.height , width: self.frame.width, height: self.frame.height)
-        parentView.bringSubview(toFront: self)
+        parentView.bringSubviewToFront(self)
         UIView.animate(withDuration: 0.2) {
             self.frame = CGRect(x: self.parentView.frame.minX, y: self.parentView.frame.minY, width: self.frame.width, height: self.frame.height)
         }

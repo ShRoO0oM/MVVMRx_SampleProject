@@ -17,7 +17,7 @@ extension loadingViewable where Self : UIViewController {
     func startAnimating(){
         let animateLoading = loadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
         view.addSubview(animateLoading)
-        view.bringSubview(toFront: animateLoading)
+        view.bringSubviewToFront(animateLoading)
         animateLoading.restorationIdentifier = "loadingView"
         animateLoading.center = view.center
         animateLoading.loadingViewMessage = "Loading"
